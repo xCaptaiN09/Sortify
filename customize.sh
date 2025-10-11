@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Sortify v1.2 by xCaptaiN09
+# Sortify v1.3 by xCaptaiN09
 # Automatically organizes files from Downloads into categorized folders.
 
 BASE="/sdcard/Sortify"
