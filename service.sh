@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Sortify v1.2 by xCaptaiN09
+# Sortify v1.3 by xCaptaiN09
 # Smart Auto Organizer for Android Downloads
 
 DOWNLOADS="/sdcard/Download"
@@ -20,7 +20,7 @@ move_files() {
     shift
     exts="$@"
     for ext in $exts; do
-        find "$DOWNLOADS" -maxdepth 1 -type f -iname "*.$ext" -exec mv -f "{}" "$dest/" \; 2>/dev/null
+        find "$DOWNLOADS" -maxdepth 1 -type f ! -name ".*" ! -name "*.crdownload" ! -name "*.partial" ! -name "*.tmp" -iname "*.$ext" -exec mv -f "{}" "$dest/" \; 2>/dev/null
     done
 }
 
@@ -31,7 +31,7 @@ organize_downloads() {
     move_files "$DEST_BASE/Audio" mp3 m4a flac wav ogg opus aac wma
     move_files "$DEST_BASE/Archives" zip rar 7z tar gz bz2 iso
     move_files "$DEST_BASE/Apps" apk exe
-    find "$DOWNLOADS" -maxdepth 1 -type f -exec mv -f "{}" "$DEST_BASE/Others/" \; 2>/dev/null
+    find "$DOWNLOADS" -maxdepth 1 -type f ! -name ".*" ! -name "*.crdownload" ! -name "*.partial" ! -name "*.tmp" -exec mv -f "{}" "$DEST_BASE/Others/" \; 2>/dev/null
 }
 
 while true; do
