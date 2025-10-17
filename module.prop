@@ -1,6 +1,6 @@
 id=sortify
 name=Sortify
-version=1.3
-versionCode=4
+version=1.3.1
+versionCode=5
 author=xCaptaiN09
-description=Sortify automatically organizes your downloads into categorized folders safely. Now skips hidden and incomplete files for improved stability.
+description=Automatically organizes your downloads into categorized folders safely. Skips hidden and incomplete files for improved stability.
