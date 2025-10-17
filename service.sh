@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Sortify v1.3 by xCaptaiN09
+# Sortify v1.3.1 by xCaptaiN09
 # Smart Auto Organizer for Android Downloads
 
 DOWNLOADS="/sdcard/Download"
