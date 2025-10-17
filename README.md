@@ -1,24 +1,26 @@
 # 📁 Sortify
 **Author:** [xCaptaiN09](https://github.com/xCaptaiN09)  
-**Version:** 1.3.1  
+**Version:** 1.4  
 
-Sortify is a Magisk / KernelSU module that automatically organizes files in your `/sdcard/Download/` folder into categorized folders — now smarter, safer, and cleaner than ever.
+Sortify is a Magisk / KernelSU module that automatically organizes files in your `/sdcard/Download/` folder into categorized folders — now even smarter with **large file detection**.
 
 ---
 
 ### 📦 Features
 - 🕒 Runs automatically every 5 minutes  
-- 📂 Organizes documents, images, videos, audio, archives, apps, and more  
-- 🧠 Skips hidden and incomplete files (`.crdownload`, `.partial`, `.tmp`) to prevent corruption  
+- 📂 Organizes documents, images, videos, audio, archives, apps, and other files  
+- 🧠 Skips hidden and incomplete files (`.crdownload`, `.partial`, `.tmp`)  
+- 💾 Moves large files (≥1GB) to a special **`/sdcard/Sortify/LargeFiles`** folder  
+- 🧾 Keeps logs at `/sdcard/Sortify/sortify.log` (auto-trimmed to 200 lines)  
 - 🪶 Lightweight and fully offline  
-- 🧾 Keeps logs at `/sdcard/Sortify/sortify.log` (auto-trimmed)  
+- 🚫 Safe — never touches hidden or system data  
 
 ---
 
 ### 🧩 Installation
-1. Flash `Sortify-v1.3.1.zip` through **Magisk** or **KernelSU**  
+1. Flash `Sortify-v1.4.zip` through **Magisk** or **KernelSU**  
 2. Reboot  
-3. Sortify will automatically organize your downloads ✅  
+3. Sortify automatically organizes your downloads ✅  
 
 ---
 
@@ -26,31 +28,36 @@ Sortify is a Magisk / KernelSU module that automatically organizes files in your
 You can customize:
 - Organization interval → edit `sleep 300` in `service.sh`  
 - Add or remove file extensions inside `service.sh`  
+- Large file threshold (default: ≥1GB) → adjust `-size +1073741824c` in `move_large_files()`  
 
 ---
 
 ### 🧼 Uninstall
 Simply remove **Sortify** from **Magisk Manager** and reboot.  
-All created folders (`/sdcard/Sortify`) will remain unless you manually delete them.  
+All created folders (`/sdcard/Sortify`) remain unless you manually delete them.  
 
 ---
 
 ### 🧾 Changelog
 
+#### v1.4 (2025-10-17)
+- 💾 Added automatic **LargeFiles** folder for ≥1GB files  
+- ⚙️ Improved file safety with `-readable` and zero-byte skip  
+- 🧹 Updated uninstall paths and cleanup improvements  
+- 🪶 Cleaned up logs and UI messages 
+
 #### v1.3.1 (2025-10-17)
-- 🧹 Removed unused `post-fs-data.sh` placeholder for a cleaner module structure  
+- 🧹 Removed unused `post-fs-data.sh` placeholder  
 - ⚙️ Internal cleanup and optimization  
-- 🚫 No functional changes  
 
 #### v1.3 (2025-10-10)
-- 🚫 Prevented moving hidden and incomplete download files (`.crdownload`, `.partial`, `.tmp`)  
-- 🗂️ Renamed main folder from `/sdcard/Organizer` → `/sdcard/Sortify`  
-- 🧾 Updated logs to `sortify.log` with auto-trimming  
-- ⚡ Improved background handling and reliability  
+- 🚫 Prevented moving hidden and incomplete files (`.crdownload`, `.partial`, `.tmp`)  
+- 🗂️ Renamed main folder to `/sdcard/Sortify`  
+- 🧾 Updated logging system  
+- ⚡ Improved background handling  
 
 #### v1.2 (Initial Release)
-- Initial public version  
-- Automatic file categorization every 5 minutes  
+- Automatic categorization every 5 minutes  
 - Base folder and logging system  
 
 ---
