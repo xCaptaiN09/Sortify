@@ -1,8 +1,8 @@
 # 📁 Sortify
 **Author:** [xCaptaiN09](https://github.com/xCaptaiN09)  
-**Version:** 1.3  
+**Version:** 1.3.1  
 
-Sortify is a Magisk / KernelSU module that automatically organizes files in your `/sdcard/Download/` folder into categorized folders — now smarter and safer than ever.
+Sortify is a Magisk / KernelSU module that automatically organizes files in your `/sdcard/Download/` folder into categorized folders — now smarter, safer, and cleaner than ever.
 
 ---
 
@@ -16,7 +16,7 @@ Sortify is a Magisk / KernelSU module that automatically organizes files in your
 ---
 
 ### 🧩 Installation
-1. Flash `Sortify-v1.3.zip` through **Magisk** or **KernelSU**  
+1. Flash `Sortify-v1.3.1.zip` through **Magisk** or **KernelSU**  
 2. Reboot  
 3. Sortify will automatically organize your downloads ✅  
 
@@ -25,7 +25,7 @@ Sortify is a Magisk / KernelSU module that automatically organizes files in your
 ### ⚙️ Configuration
 You can customize:
 - Organization interval → edit `sleep 300` in `service.sh`  
-- Add/remove file extensions inside `service.sh`  
+- Add or remove file extensions inside `service.sh`  
 
 ---
 
@@ -37,8 +37,13 @@ All created folders (`/sdcard/Sortify`) will remain unless you manually delete t
 
 ### 🧾 Changelog
 
+#### v1.3.1 (2025-10-17)
+- 🧹 Removed unused `post-fs-data.sh` placeholder for a cleaner module structure  
+- ⚙️ Internal cleanup and optimization  
+- 🚫 No functional changes  
+
 #### v1.3 (2025-10-10)
-- 🚫 Prevents moving hidden and incomplete download files (.crdownload, .partial, .tmp)  
+- 🚫 Prevented moving hidden and incomplete download files (`.crdownload`, `.partial`, `.tmp`)  
 - 🗂️ Renamed main folder from `/sdcard/Organizer` → `/sdcard/Sortify`  
 - 🧾 Updated logs to `sortify.log` with auto-trimming  
 - ⚡ Improved background handling and reliability  
