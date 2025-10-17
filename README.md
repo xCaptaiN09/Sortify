@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/xCaptaiN09/Sortify/main/banner.png" width="800" alt="Sortify Banner">
+</p>
+
 # 📁 Sortify
 **Author:** [xCaptaiN09](https://github.com/xCaptaiN09)  
 **Version:** 1.4  
