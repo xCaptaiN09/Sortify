@@ -1,8 +1,8 @@
 {
-  "version": "1.4",
-  "versionCode": 6,
-  "downloadURL": "https://github.com/xCaptaiN09/Sortify/releases/download/v1.4/Sortify.v1.4.zip",
-  "changelog": "💾 Added automatic LargeFiles folder for ≥1GB files.\n⚙️ Improved file safety with -readable and zero-byte skip.\n🧹 Updated uninstall paths and cleanup improvements.\n🪶 Cleaned up logs and UI messages.",
+  "version": "2.0",
+  "versionCode": 8,
+  "downloadURL": "https://github.com/xCaptaiN09/Sortify/releases/download/v2.0/Sortify-v2.0.zip",
+  "changelog": "🆕 Duplicate detection → files with the same name are moved to /sdcard/Sortify/Duplicates.\n🛠 Fixed uninstall paths.\n⚡ Centralized extension handling.\n🧾 Improved logging stability.\n🔒 Safer file moves (no overwrites).",
   "forumURL": "https://github.com/xCaptaiN09/Sortify",
   "updateType": "stable"
 }
