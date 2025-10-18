@@ -1,30 +1,29 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/xCaptaiN09/Sortify/main/banner.png" width="800" alt="Sortify Banner">
+  <img src="banner.png" alt="Sortify Banner" width="100%" />
 </p>
 
 # 📁 Sortify
 **Author:** [xCaptaiN09](https://github.com/xCaptaiN09)  
-**Version:** 1.4  
+**Version:** 2.0  
 
-Sortify is a Magisk / KernelSU module that automatically organizes files in your `/sdcard/Download/` folder into categorized folders — now even smarter with **large file detection**.
+Sortify is a Magisk / KernelSU module that automatically organizes files in your `/sdcard/Download/` folder into categorized folders — now smarter, safer, and cleaner than ever.  
 
 ---
 
 ### 📦 Features
 - 🕒 Runs automatically every 5 minutes  
-- 📂 Organizes documents, images, videos, audio, archives, apps, and other files  
-- 🧠 Skips hidden and incomplete files (`.crdownload`, `.partial`, `.tmp`)  
-- 💾 Moves large files (≥1GB) to a special **`/sdcard/Sortify/LargeFiles`** folder  
-- 🧾 Keeps logs at `/sdcard/Sortify/sortify.log` (auto-trimmed to 200 lines)  
+- 📂 Organizes documents, images, videos, audio, archives, apps, and more  
+- 🧠 Skips hidden and incomplete files (`.crdownload`, `.partial`, `.tmp`) to prevent corruption  
 - 🪶 Lightweight and fully offline  
-- 🚫 Safe — never touches hidden or system data  
+- 🧾 Keeps logs at `/sdcard/Sortify/sortify.log` (auto-trimmed)  
+- 🗂️ **New in v2.0:** Detects duplicate files and moves them into `/sdcard/Sortify/Duplicates`  
 
 ---
 
 ### 🧩 Installation
-1. Flash `Sortify-v1.4.zip` through **Magisk** or **KernelSU**  
+1. Flash `Sortify-v2.0.zip` through **Magisk** or **KernelSU**  
 2. Reboot  
-3. Sortify automatically organizes your downloads ✅  
+3. Sortify will automatically organize your downloads ✅  
 
 ---
 
@@ -32,42 +31,44 @@ Sortify is a Magisk / KernelSU module that automatically organizes files in your
 You can customize:
 - Organization interval → edit `sleep 300` in `service.sh`  
 - Add or remove file extensions inside `service.sh`  
-- Large file threshold (default: ≥1GB) → adjust `-size +1073741824c` in `move_large_files()`  
 
 ---
 
 ### 🧼 Uninstall
 Simply remove **Sortify** from **Magisk Manager** and reboot.  
-All created folders (`/sdcard/Sortify`) remain unless you manually delete them.  
+All created folders (`/sdcard/Sortify`) will remain unless you manually delete them.  
 
 ---
 
 ### 🧾 Changelog
 
-#### v1.4 (2025-10-17)
-- 💾 Added automatic **LargeFiles** folder for ≥1GB files  
-- ⚙️ Improved file safety with `-readable` and zero-byte skip  
-- 🧹 Updated uninstall paths and cleanup improvements  
-- 🪶 Cleaned up logs and UI messages 
+#### v2.0 (2025-10-18)
+- 🆕 Added **duplicate detection** → duplicate files are now moved to `/sdcard/Sortify/Duplicates`  
+- 🛠 Fixed uninstall script path (now points to `/sdcard/Sortify`)  
+- ⚡ Centralized extension handling for easier customization  
+- 🧾 Improved logging stability and trimming  
+- 🔒 Safer file moves (no accidental overwrites)  
 
 #### v1.3.1 (2025-10-17)
-- 🧹 Removed unused `post-fs-data.sh` placeholder  
+- 🧹 Removed unused `post-fs-data.sh` placeholder for a cleaner module structure  
 - ⚙️ Internal cleanup and optimization  
+- 🚫 No functional changes  
 
 #### v1.3 (2025-10-10)
-- 🚫 Prevented moving hidden and incomplete files (`.crdownload`, `.partial`, `.tmp`)  
-- 🗂️ Renamed main folder to `/sdcard/Sortify`  
-- 🧾 Updated logging system  
-- ⚡ Improved background handling  
+- 🚫 Prevented moving hidden and incomplete download files (`.crdownload`, `.partial`, `.tmp`)  
+- 🗂️ Renamed main folder from `/sdcard/Organizer` → `/sdcard/Sortify`  
+- 🧾 Updated logs to `sortify.log` with auto-trimming  
+- ⚡ Improved background handling and reliability  
 
 #### v1.2 (Initial Release)
-- Automatic categorization every 5 minutes  
+- Initial public version  
+- Automatic file categorization every 5 minutes  
 - Base folder and logging system  
 
 ---
 
 ### 🧡 Credits
-Developed by [xCaptaiN09](https://github.com/xCaptaiN09)
+Developed by [xCaptaiN09](https://github.com/xCaptaiN09)  
 
 ---
 
