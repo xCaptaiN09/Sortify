@@ -1,0 +1,8 @@
+{
+  "version": "3.0",
+  "versionCode": 9,
+  "zipUrl": "https://github.com/xCaptaiN09/Sortify/releases/download/v3.0/Sortify-v3.0.zip",
+  "changelog": "Added manual one-tap sorting via the Magisk Action button.",
+  "forumURL": "https://github.com/xCaptaiN09/Sortify",
+  "updateType": "stable"
+}
