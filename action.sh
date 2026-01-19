@@ -3,7 +3,7 @@
 ui_print() {
     echo "$1"
 }
-# Sortify v3.0 - Manual Action
+# Sortify v4.0 - Manual Action
 
 ui_print "▶ Sortify: Manual sort started"
 

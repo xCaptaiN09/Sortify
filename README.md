@@ -1,100 +1,98 @@
 <p align="center">
   <img src="banner.png" alt="Sortify Banner" width="100%" />
-</p>📁 Sortify
+</p>
 
-Author: "xCaptaiN09" (https://github.com/xCaptaiN09)
-Version: 3.0
+# 📁 Sortify
 
-Sortify is a Magisk / KernelSU module that automatically organizes files in your "/sdcard/Download/" folder into categorized folders — now smarter, safer, and cleaner than ever.
+**Author:** [xCaptaiN09](https://github.com/xCaptaiN09)  
+**Version:** 4.0  
 
----
-
-📦 Features
-
-- 🕒 Runs automatically every 5 minutes
-- ▶ Manual one-tap sorting via Magisk Action button
-- 📂 Organizes documents, images, videos, audio, archives, apps, and more
-- 🧠 Skips hidden and incomplete files (".crdownload", ".partial", ".tmp") to prevent corruption
-- 🪶 Lightweight and fully offline
-- 🧾 Keeps logs at "/sdcard/Sortify/sortify.log" (auto-trimmed)
-- 🗂️ Detects duplicate files and moves them into "/sdcard/Sortify/Duplicates"
+Sortify is a powerful **Magisk / KernelSU** module that automatically organizes files in your `/sdcard/Download/` folder into categorized subfolders. Now smarter, safer, and equipped with a **Native WebUI** for easy configuration.
 
 ---
 
-🧩 Installation
+## 📦 Features
 
-1. Flash "Sortify-v3.0.zip" through Magisk or KernelSU
-2. Reboot
-3. Sortify will automatically organize your downloads ✅
-
----
-
-⚙️ Configuration
-
-You can customize:
-
-- Organization interval → edit "sleep 300" in "service.sh"
-- Add or remove file extensions inside "service.sh"
+* **⚡ Automatic Sorting:** Runs automatically in the background (Default: every 5 mins).
+* **🌐 Native WebUI:** **NEW!** Configure sorting intervals directly inside the KernelSU Manager (No browser needed).
+* **▶ Manual Trigger:** Supports Magisk/KSU Action Button to sort instantly.
+* **📂 Smart Categories:** Sorts Documents, Images, Videos, Audio, Archives, Apps, and more.
+* **🛡️ Integrity Protection:** Skips hidden/incomplete files (`.crdownload`, `.partial`, `.tmp`) to prevent corruption.
+* **🗂️ Duplicate Detection:** Automatically moves duplicate files to `/sdcard/Sortify/Duplicates`.
+* **🪶 Lightweight:** 100% offline, uses native system resources.
 
 ---
 
-▶ Manual Trigger
+## 🧩 Installation
 
-Sortify v3.0 introduces a manual one-tap sort using the Action button in Magisk.
-This runs the organizer once instantly without interfering with the background service.
-
----
-
-🧼 Uninstall
-
-Simply remove Sortify from Magisk Manager and reboot.
-All created folders ("/sdcard/Sortify") will remain unless you manually delete them.
+1.  Download `Sortify-v4.0.zip` from Releases.
+2.  Flash through **Magisk** or **KernelSU**.
+3.  Reboot your device.
+4.  **Done!** Sortify is now running.
 
 ---
 
-🧾 Changelog
+## ⚙️ Configuration (WebUI)
 
-v3.0 (2026-01-19)
+**Sortify v4.0** introduces a native dashboard to change settings without editing code.
 
-- ▶ Added manual one-tap sorting via Magisk Action button
-- ♻️ Automatic background sorting remains unchanged
-- 🧠 Inspired by community feedback
+### How to access:
+1.  Open **KernelSU Manager**.
+2.  Go to the **Modules** tab.
+3.  Find **Sortify**.
+4.  Tap the **Settings / Globe Icon** on the module card.
 
-v2.0 (2025-10-18)
-
-- 🆕 Added duplicate detection → duplicate files are now moved to "/sdcard/Sortify/Duplicates"
-- 🛠 Fixed uninstall script path (now points to "/sdcard/Sortify")
-- ⚡ Centralized extension handling for easier customization
-- 🧾 Improved logging stability and trimming
-- 🔒 Safer file moves (no accidental overwrites)
-
-v1.3.1 (2025-10-17)
-
-- 🧹 Removed unused "post-fs-data.sh" placeholder for a cleaner module structure
-- ⚙️ Internal cleanup and optimization
-- 🚫 No functional changes
-
-v1.3 (2025-10-10)
-
-- 🚫 Prevented moving hidden and incomplete download files (".crdownload", ".partial", ".tmp")
-- 🗂️ Renamed main folder from "/sdcard/Organizer" → "/sdcard/Sortify"
-- 🧾 Updated logs to "sortify.log" with auto-trimming
-- ⚡ Improved background handling and reliability
-
-v1.2 (Initial Release)
-
-- Initial public version
-- Automatic file categorization every 5 minutes
-- Base folder and logging system
+### Settings available:
+* **Sort Interval:** Change how often the background service checks for new files (in seconds).
+    * *Default:* 300 seconds (5 minutes).
+    * *Changes apply immediately.*
 
 ---
 
-🧡 Credits
+## ▶ Manual Trigger
 
-Developed by "xCaptaiN09" (https://github.com/xCaptaiN09)
-
-Thanks to "DaveRamirezCodes" (https://github.com/DaveRamirezCodes) for the suggestion and discussion around adding a manual trigger via the Magisk action button.
+You can force a sort immediately without waiting for the timer:
+* **Magisk/KSU App:** Tap the **Action** button on the module card.
+* **Terminal:** Run `su -c sh /data/adb/modules/sortify/action.sh`
 
 ---
 
-""GitHub release" (https://img.shields.io/github/v/release/xCaptaiN09/Sortify)" (https://github.com/xCaptaiN09/Sortify/releases)
+## 🧼 Uninstall
+
+1.  Remove Sortify from your Module Manager.
+2.  Reboot.
+3.  *(Optional)* Delete the `/sdcard/Sortify` folder if you no longer need the organized files.
+
+---
+
+## 🧾 Changelog
+
+### v4.0 (2026-01-19)
+* **🌐 Native WebUI:** Added KernelSU `webroot` support for internal configuration (Replaces port 8081 server).
+* **⚡ Optimized Service:** Removed BusyBox HTTPD dependency for lighter footprint.
+* **🚀 Performance:** Improved background service logic.
+* **🔧 Stability:** Fixed permission handling for scripts and config files.
+
+### v3.0 (2026-01-19)
+* ▶ Added manual one-tap sorting via Magisk Action button.
+* ♻️ Refined automatic background sorting.
+
+### v2.0 (2025-10-18)
+* 🆕 Added duplicate detection (moves to `/sdcard/Sortify/Duplicates`).
+* 🛠 Fixed uninstall script path.
+* ⚡ Centralized extension handling.
+* 🔒 Safer file moves (no accidental overwrites).
+
+### v1.3 (2025-10-10)
+* 🚫 Prevented moving hidden/incomplete downloads (`.crdownload`, etc.).
+* 🗂️ Renamed main folder to `/sdcard/Sortify`.
+* 🧾 Updated logs to `sortify.log` with auto-trimming.
+
+---
+
+## 🧡 Credits
+
+* Developed by **[xCaptaiN09](https://github.com/xCaptaiN09)**
+* Powered by BusyBox & Android Shell
+
+[![GitHub release](https://img.shields.io/github/v/release/xCaptaiN09/Sortify)](https://github.com/xCaptaiN09/Sortify/releases)

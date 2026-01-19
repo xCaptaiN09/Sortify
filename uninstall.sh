@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Sortify v3.0 Uninstaller - by xCaptaiN09
+# Sortify v4.0 Uninstaller - by xCaptaiN09
 
 BASE="/sdcard/Sortify"
 LOG="$BASE/sortify.log"
@@ -18,4 +18,6 @@ echo "[Uninstall] $(date '+%Y-%m-%d %H:%M:%S') - Sortify uninstall initiated." >
 # rmdir "$BASE" 2>/dev/null
 
 echo "[Uninstall] Sortify uninstalled successfully." >> "$LOG"
+# Kill running service and web server
+pkill -f "sortify"
 exit 0

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sortify</title>
+    <style>
+        body { font-family: sans-serif; background: #121212; color: #e0e0e0; padding: 20px; display: flex; justify-content: center; }
+        .card { background: #1e1e1e; padding: 20px; border-radius: 12px; width: 100%; max-width: 350px; }
+        h2 { margin-top: 0; color: #bb86fc; }
+        label { display: block; margin-bottom: 8px; color: #b0b0b0; }
+        input { width: 100%; padding: 12px; margin-bottom: 20px; background: #2c2c2c; border: 1px solid #333; color: white; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #bb86fc; color: #000; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        #toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1; bottom: 30px; left: 50%; transform: translateX(-50%); }
+        #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Sortify Config</h2>
+        <label>Sort Interval (seconds)</label>
+        <input type="number" id="interval" placeholder="300">
+        <button onclick="saveConfig()">Save Settings</button>
+    </div>
+
+    <div id="toast">Settings Saved!</div>
+
+    <script>
+        // File path for the config
+        const CONF_PATH = "/data/adb/modules/sortify/sortify.conf";
+
+        // 1. Read existing config when page loads
+        async function loadConfig() {
+            try {
+                // ksu.exec runs a shell command and returns output
+                const { stdout } = await ksu.exec(`cat "${CONF_PATH}"`);
+                // Parse "INTERVAL=300" to extract just "300"
+                const match = stdout.match(/INTERVAL=(\d+)/);
+                if (match) {
+                    document.getElementById('interval').value = match[1];
+                }
+            } catch (e) {
+                console.error("Read Error:", e);
+            }
+        }
+
+        // 2. Save new config
+        async function saveConfig() {
+            const val = document.getElementById('interval').value;
+            if (!val) return;
+
+            try {
+                // Write the value back to the file
+                await ksu.exec(`echo "INTERVAL=${val}" > "${CONF_PATH}"`);
+                
+                // Show success message
+                showToast("Saved! Interval set to " + val + "s");
+            } catch (e) {
+                showToast("Error: " + e);
+            }
+        }
+
+        function showToast(msg) {
+            const x = document.getElementById("toast");
+            x.innerText = msg;
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+
+        // Initialize
+        if (typeof ksu !== 'undefined') {
+            loadConfig();
+        } else {
+            // Fallback for browser testing (mock)
+            console.log("Not in KernelSU");
+        }
+    </script>
+
+</body>
+</html>

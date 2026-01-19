@@ -1,8 +1,8 @@
 {
-  "version": "3.0",
-  "versionCode": 9,
-  "zipUrl": "https://github.com/xCaptaiN09/Sortify/releases/download/v3.0/Sortify-v3.0.zip",
-  "changelog": "Added manual one-tap sorting via the Magisk Action button.",
+  "version": "4.0",
+  "versionCode": 10,
+  "zipUrl": "https://github.com/xCaptaiN09/Sortify/releases/download/v4.0/Sortify-v4.0.zip",
+  "changelog": "v4.0: New Native WebUI to configure settings directly in KernelSU. Optimized background service logic. Fixed permission handling",
   "forumURL": "https://github.com/xCaptaiN09/Sortify",
   "updateType": "stable"
 }
