@@ -1,0 +1,8 @@
+id=sortify
+name=Sortify
+version=3.0
+versionCode=9
+author=xCaptaiN09
+description=Automatically organizes your downloads into categorized folders with improved stability. Now detects and moves duplicate files into a dedicated Duplicates folder, while still skipping hidden and incomplete files for safety.
+updateJson=https://raw.githubusercontent.com/xCaptaiN09/Sortify/main/update.json
+banner=banner.png
