@@ -1,43 +1,25 @@
 #!/system/bin/sh
-# Sortify v4.0 Service (Native WebUI Version)
-
 MODDIR=${0%/*}
-CONF="$MODDIR/sortify.conf"
-LOG="$MODDIR/sortify.log"
-
-# 1. Load Defaults if config missing
-if [ ! -f "$CONF" ]; then
-    echo "INTERVAL=300" > "$CONF"
-fi
-
-# (WebUI is now handled natively by KernelSU via 'webroot' folder. No httpd needed.)
-
-# 2. Wait for Storage
-wait_until_storage() {
-    until [ -d "/sdcard/Download" ]; do
-        sleep 10
-    done
-}
-wait_until_storage
-
-# 3. Main Loop (Backgrounded)
+STORAGE=${SORTIFY_STORAGE_ROOT:-/sdcard}
+STATE=${SORTIFY_STATE_DIR:-/data/adb/sortify}
+# Do not canonicalize Android's emulated-storage aliases before storage mounts.
 (
-    while true; do
-        # Re-read config every cycle to get new INTERVAL
-        if [ -f "$CONF" ]; then
-            source "$CONF"
-        fi
-        
-        # Run the action script
-        # We redirect stdout/stderr to log to capture any 'echo' from action.sh
-        sh "$MODDIR/action.sh" >> "$LOG" 2>&1
-        
-        # Log the service heartbeat
-        echo "[Service] $(date '+%Y-%m-%d %H:%M:%S') - Cycle complete. Sleeping ${INTERVAL}s" >> "$LOG"
-        
-        # Prune log (Keep last 200 lines)
-        tail -n 200 "$LOG" > "$LOG.tmp" && mv "$LOG.tmp" "$LOG"
-        
-        sleep "${INTERVAL:-300}"
+    while [ ! -d "$STORAGE" ] || [ ! -r "$STORAGE" ]; do
+        [ -d "$MODDIR" ] || exit 0
+        [ ! -f "$MODDIR/disable" ] && [ ! -f "$MODDIR/remove" ] || exit 0
+        sleep 5
     done
-) &  # <--- CRITICAL: Run entire loop in background
+    if command -v getprop >/dev/null 2>&1; then
+        while [ "$(getprop sys.boot_completed)" != "1" ]; do
+            [ -d "$MODDIR" ] || exit 0
+            [ ! -f "$MODDIR/disable" ] && [ ! -f "$MODDIR/remove" ] || exit 0
+            sleep 5
+        done
+    fi
+    [ -d "$MODDIR" ] || exit 0
+    [ ! -f "$MODDIR/disable" ] && [ ! -f "$MODDIR/remove" ] || exit 0
+    mkdir -p "$STATE" || exit 1
+    chmod 0700 "$STATE" || exit 1
+    # Truncate on startup; the singleton helper handles its persistent status.
+    sh "$MODDIR/sortify.sh" serve >"$STATE/service.log" 2>&1
+) &

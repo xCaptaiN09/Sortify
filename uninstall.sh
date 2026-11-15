@@ -1,23 +1,5 @@
 #!/system/bin/sh
-# Sortify v4.0 Uninstaller - by xCaptaiN09
-
-BASE="/sdcard/Sortify"
-LOG="$BASE/sortify.log"
-
-echo "[Uninstall] $(date '+%Y-%m-%d %H:%M:%S') - Sortify uninstall initiated." >> "$LOG"
-
-# Optional: Uncomment the lines below if you want to delete all Sortify folders on uninstall
-# rm -rf "$BASE/Documents" \
-#        "$BASE/Images" \
-#        "$BASE/Videos" \
-#        "$BASE/Audio" \
-#        "$BASE/Archives" \
-#        "$BASE/Apps" \
-#        "$BASE/Others" \
-#        "$BASE/Duplicates"
-# rmdir "$BASE" 2>/dev/null
-
-echo "[Uninstall] Sortify uninstalled successfully." >> "$LOG"
-# Kill running service and web server
-pkill -f "sortify"
-exit 0
+MODDIR=${0%/*}
+# The daemon checks remove/disable flags and its module path, then exits cleanly.
+# Do not kill an in-progress transfer or delete organized files/history/settings.
+printf '%s\n' 'Sortify removed. Organized files and /data/adb/sortify settings/history are preserved.'

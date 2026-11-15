@@ -1,0 +1,35 @@
+name: Verify and package
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.4'
+          cache-dependency-path: core/go.mod
+      - name: Core tests and race detection
+        working-directory: core
+        run: go test -race ./...
+      - name: WebUI behavior tests
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm run build:web
+          git diff --exit-code -- webroot/app.js
+          node --test tests/webui.test.mjs
+      - name: Packaging and shell tests
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Cross-compile module helpers
+        run: python3 tools/build.py
+      - name: Assemble offline module
+        run: python3 tools/package.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Sortify-v5.0
+          path: dist/Sortify-v5.0.zip

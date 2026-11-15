@@ -1,0 +1,13 @@
+{
+  "name": "sortify-webui",
+  "version": "5.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:web": "node tools/build-web.mjs",
+    "test": "node --test tests/webui.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.5"
+  }
+}

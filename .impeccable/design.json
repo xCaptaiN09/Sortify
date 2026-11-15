@@ -1,0 +1,396 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-15T12:17:12.514360+00:00",
+  "title": "Design System: Sortify",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "tonalRamp": [
+          "oklch(15.00% 0.00669 115.71)",
+          "oklch(26.43% 0.00669 115.71)",
+          "oklch(37.86% 0.00669 115.71)",
+          "oklch(49.29% 0.00669 115.71)",
+          "oklch(60.71% 0.00669 115.71)",
+          "oklch(72.14% 0.00669 115.71)",
+          "oklch(83.57% 0.00669 115.71)",
+          "oklch(95.00% 0.00669 115.71)"
+        ]
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Botanical Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.01823 165.31)",
+          "oklch(26.43% 0.01823 165.31)",
+          "oklch(37.86% 0.01823 165.31)",
+          "oklch(49.29% 0.01823 165.31)",
+          "oklch(60.71% 0.01823 165.31)",
+          "oklch(72.14% 0.01823 165.31)",
+          "oklch(83.57% 0.01823 165.31)",
+          "oklch(95.00% 0.01823 165.31)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.01894 153.98)",
+          "oklch(26.43% 0.01894 153.98)",
+          "oklch(37.86% 0.01894 153.98)",
+          "oklch(49.29% 0.01894 153.98)",
+          "oklch(60.71% 0.01894 153.98)",
+          "oklch(72.14% 0.01894 153.98)",
+          "oklch(83.57% 0.01894 153.98)",
+          "oklch(95.00% 0.01894 153.98)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Quiet Rule",
+        "tonalRamp": [
+          "oklch(15.00% 0.01916 142.79)",
+          "oklch(26.43% 0.01916 142.79)",
+          "oklch(37.86% 0.01916 142.79)",
+          "oklch(49.29% 0.01916 142.79)",
+          "oklch(60.71% 0.01916 142.79)",
+          "oklch(72.14% 0.01916 142.79)",
+          "oklch(83.57% 0.01916 142.79)",
+          "oklch(95.00% 0.01916 142.79)"
+        ]
+      },
+      "lavender": {
+        "role": "secondary",
+        "displayName": "Duplicate Lavender",
+        "tonalRamp": [
+          "oklch(15.00% 0.08811 309.10)",
+          "oklch(26.43% 0.08811 309.10)",
+          "oklch(37.86% 0.08811 309.10)",
+          "oklch(49.29% 0.08811 309.10)",
+          "oklch(60.71% 0.08811 309.10)",
+          "oklch(72.14% 0.08811 309.10)",
+          "oklch(83.57% 0.08811 309.10)",
+          "oklch(95.00% 0.08811 309.10)"
+        ]
+      },
+      "green": {
+        "role": "secondary",
+        "displayName": "Result Green",
+        "tonalRamp": [
+          "oklch(15.00% 0.05909 154.16)",
+          "oklch(26.43% 0.05909 154.16)",
+          "oklch(37.86% 0.05909 154.16)",
+          "oklch(49.29% 0.05909 154.16)",
+          "oklch(60.71% 0.05909 154.16)",
+          "oklch(72.14% 0.05909 154.16)",
+          "oklch(83.57% 0.05909 154.16)",
+          "oklch(95.00% 0.05909 154.16)"
+        ]
+      },
+      "peach": {
+        "role": "secondary",
+        "displayName": "Skipped Peach",
+        "tonalRamp": [
+          "oklch(15.00% 0.08895 54.37)",
+          "oklch(26.43% 0.08895 54.37)",
+          "oklch(37.86% 0.08895 54.37)",
+          "oklch(49.29% 0.08895 54.37)",
+          "oklch(60.71% 0.08895 54.37)",
+          "oklch(72.14% 0.08895 54.37)",
+          "oklch(83.57% 0.08895 54.37)",
+          "oklch(95.00% 0.08895 54.37)"
+        ]
+      },
+      "blue": {
+        "role": "secondary",
+        "displayName": "Result Blue",
+        "tonalRamp": [
+          "oklch(15.00% 0.04501 255.64)",
+          "oklch(26.43% 0.04501 255.64)",
+          "oklch(37.86% 0.04501 255.64)",
+          "oklch(49.29% 0.04501 255.64)",
+          "oklch(60.71% 0.04501 255.64)",
+          "oklch(72.14% 0.04501 255.64)",
+          "oklch(83.57% 0.04501 255.64)",
+          "oklch(95.00% 0.04501 255.64)"
+        ]
+      },
+      "danger": {
+        "role": "neutral",
+        "displayName": "Danger Red",
+        "tonalRamp": [
+          "oklch(15.00% 0.12742 29.80)",
+          "oklch(26.43% 0.12742 29.80)",
+          "oklch(37.86% 0.12742 29.80)",
+          "oklch(49.29% 0.12742 29.80)",
+          "oklch(60.71% 0.12742 29.80)",
+          "oklch(72.14% 0.12742 29.80)",
+          "oklch(83.57% 0.12742 29.80)",
+          "oklch(95.00% 0.12742 29.80)"
+        ]
+      },
+      "field-bg": {
+        "role": "neutral",
+        "displayName": "Field Wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.01269 126.38)",
+          "oklch(26.43% 0.01269 126.38)",
+          "oklch(37.86% 0.01269 126.38)",
+          "oklch(49.29% 0.01269 126.38)",
+          "oklch(60.71% 0.01269 126.38)",
+          "oklch(72.14% 0.01269 126.38)",
+          "oklch(83.57% 0.01269 126.38)",
+          "oklch(95.00% 0.01269 126.38)"
+        ]
+      },
+      "field-rule": {
+        "role": "neutral",
+        "displayName": "Field Rule",
+        "tonalRamp": [
+          "oklch(15.00% 0.03208 145.17)",
+          "oklch(26.43% 0.03208 145.17)",
+          "oklch(37.86% 0.03208 145.17)",
+          "oklch(49.29% 0.03208 145.17)",
+          "oklch(60.71% 0.03208 145.17)",
+          "oklch(72.14% 0.03208 145.17)",
+          "oklch(83.57% 0.03208 145.17)",
+          "oklch(95.00% 0.03208 145.17)"
+        ]
+      },
+      "hover": {
+        "role": "neutral",
+        "displayName": "Hover Wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.01726 128.67)",
+          "oklch(26.43% 0.01726 128.67)",
+          "oklch(37.86% 0.01726 128.67)",
+          "oklch(49.29% 0.01726 128.67)",
+          "oklch(60.71% 0.01726 128.67)",
+          "oklch(72.14% 0.01726 128.67)",
+          "oklch(83.57% 0.01726 128.67)",
+          "oklch(95.00% 0.01726 128.67)"
+        ]
+      },
+      "focus": {
+        "role": "neutral",
+        "displayName": "Focus Green",
+        "tonalRamp": [
+          "oklch(15.00% 0.06313 149.42)",
+          "oklch(26.43% 0.06313 149.42)",
+          "oklch(37.86% 0.06313 149.42)",
+          "oklch(49.29% 0.06313 149.42)",
+          "oklch(60.71% 0.06313 149.42)",
+          "oklch(72.14% 0.06313 149.42)",
+          "oklch(83.57% 0.06313 149.42)",
+          "oklch(95.00% 0.06313 149.42)"
+        ]
+      },
+      "error-bg": {
+        "role": "neutral",
+        "displayName": "Error Wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.03166 45.27)",
+          "oklch(26.43% 0.03166 45.27)",
+          "oklch(37.86% 0.03166 45.27)",
+          "oklch(49.29% 0.03166 45.27)",
+          "oklch(60.71% 0.03166 45.27)",
+          "oklch(72.14% 0.03166 45.27)",
+          "oklch(83.57% 0.03166 45.27)",
+          "oklch(95.00% 0.03166 45.27)"
+        ]
+      },
+      "error-ink": {
+        "role": "neutral",
+        "displayName": "Error Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.10167 30.49)",
+          "oklch(26.43% 0.10167 30.49)",
+          "oklch(37.86% 0.10167 30.49)",
+          "oklch(49.29% 0.10167 30.49)",
+          "oklch(60.71% 0.10167 30.49)",
+          "oklch(72.14% 0.10167 30.49)",
+          "oklch(83.57% 0.10167 30.49)",
+          "oklch(95.00% 0.10167 30.49)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home headline; smaller responsive variants are documented in DESIGN.md."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Open section headings; settings legends use a fixed related size."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "File names and small operational headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Inherited reading style."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Semibold action text."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Paths, dates, hints and compact labels."
+      },
+      "metric": {
+        "displayName": "Metric",
+        "purpose": "Tabular serif result counts."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Shared easing for state transitions and artwork arrival."
+      },
+      {
+        "name": "state-duration",
+        "value": "180ms",
+        "purpose": "Color, background and switch-knob transitions; disabled under reduced motion."
+      },
+      {
+        "name": "artwork-arrival",
+        "value": "650ms",
+        "purpose": "One reveal using translateY(10px) to zero and a clip inset; runs only with no reduced-motion preference."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "760px"
+      },
+      {
+        "name": "phone",
+        "value": "540px"
+      },
+      {
+        "name": "settings-measure",
+        "value": "900px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action",
+      "kind": "button",
+      "description": "Square ink action with a consistent northeast SVG arrow.",
+      "html": "<button class=\"ds-primary\" type=\"button\">Sort now <svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m6 18 12-12M6 6h12v12\"/></svg></button>",
+      "css": ".ds-primary { font: 600 13px/1.55 var(--body, \"DM Sans\", sans-serif); color: var(--paper, #f4f5f0); background: var(--ink, #18231e); border: 0; border-bottom: 0; border-radius: 0; min-height: 44px; padding: 13px 20px; cursor: pointer; transition: background-color 180ms var(--ease, cubic-bezier(0.23, 1, 0.32, 1)), color 180ms var(--ease, cubic-bezier(0.23, 1, 0.32, 1)); outline-offset: 5px; }.ds-primary:not(:disabled):hover { background: #34523c; }.ds-primary:focus-visible { outline: 2px solid #395d40; } .ds-primary:not(:disabled):active { transform: translateY(1px); } .ds-primary:disabled { opacity: .48; cursor: not-allowed; } @media (prefers-reduced-motion: reduce) { .ds-primary { transition: none; } }.ds-arrow { display: inline-block; width: 20px; height: 20px; margin-left: 26px; vertical-align: middle; fill: none; stroke: currentColor; stroke-width: 1.5; } @media(max-width:760px){.ds-arrow{margin-left:12px;}}",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "Secondary Action",
+      "kind": "button",
+      "description": "Transparent action with a single bottom rule.",
+      "html": "<button class=\"ds-secondary\" type=\"button\">Preview files</button>",
+      "css": ".ds-secondary { font: 600 13px/1.55 var(--body, \"DM Sans\", sans-serif); color: var(--ink, #18231e); background: transparent; border: 0; border-bottom: 1px solid var(--ink, #18231e); border-radius: 0; min-height: 44px; padding: 10px 16px; cursor: pointer; transition: background-color 180ms var(--ease, cubic-bezier(0.23, 1, 0.32, 1)), color 180ms var(--ease, cubic-bezier(0.23, 1, 0.32, 1)); outline-offset: 5px; }.ds-secondary:not(:disabled):hover { background: #e1e7db; }.ds-secondary:focus-visible { outline: 2px solid #395d40; } .ds-secondary:not(:disabled):active { transform: translateY(1px); } .ds-secondary:disabled { opacity: .48; cursor: not-allowed; } @media (prefers-reduced-motion: reduce) { .ds-secondary { transition: none; } }",
+      "refersTo": "button-secondary"
+    },
+    {
+      "name": "Text Action",
+      "kind": "button",
+      "description": "Compact underlined action for service refresh and local utilities.",
+      "html": "<button class=\"ds-text\" type=\"button\">Refresh</button>",
+      "css": ".ds-text { font: 600 12px/1.55 var(--body, \"DM Sans\", sans-serif); color: var(--ink, #18231e); background: transparent; border: 0; border-bottom: 0; border-radius: 0; min-height: 32px; padding: 4px 0; cursor: pointer; transition: background-color 180ms var(--ease, cubic-bezier(0.23, 1, 0.32, 1)), color 180ms var(--ease, cubic-bezier(0.23, 1, 0.32, 1)); outline-offset: 5px; text-decoration: underline; text-underline-offset: 4px; }.ds-text:not(:disabled):hover { background: transparent; color: #395d40; }.ds-text:focus-visible { outline: 2px solid #395d40; } .ds-text:not(:disabled):active { transform: translateY(1px); } .ds-text:disabled { opacity: .48; cursor: not-allowed; } @media (prefers-reduced-motion: reduce) { .ds-text { transition: none; } }",
+      "refersTo": "button-text"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "description": "A quiet filled field with a bottom rule, visible label and helper text.",
+      "html": "<label class=\"ds-field\">Check interval, in seconds<input type=\"text\" inputmode=\"numeric\" value=\"3600\" aria-describedby=\"ds-interval-hint\"><span class=\"ds-hint\" id=\"ds-interval-hint\">3600 = one hour. Allowed: 60–604800 seconds.</span></label>",
+      "css": ".ds-field { display:flex; flex-direction:column; gap:8px; color:var(--ink, #18231e); font:500 13px/1.55 var(--body, \"DM Sans\", sans-serif); } .ds-field input { width:100%; max-width:100%; min-height:45px; border:0; border-bottom:1px solid #788978; border-radius:0; background:#e9ede4; color:var(--ink, #18231e); padding:11px 12px; font:400 14px/1.55 var(--body, \"DM Sans\", sans-serif); caret-color:#3d6247; outline-offset:5px; } .ds-field input:focus-visible{outline:2px solid #395d40;} .ds-field input:disabled{opacity:.48;cursor:not-allowed;} .ds-hint{color:var(--muted,#4c574f);font-size:12px;font-weight:400;}",
+      "refersTo": "field"
+    },
+    {
+      "name": "Ruled Navigation",
+      "kind": "nav",
+      "description": "Four visible text links with an active underline; icons disappear on phones.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Sortify pages\"><a href=\"#home\" aria-current=\"page\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m3 10 9-7 9 7v10H3V10Zm6 10v-7h6v7\"/></svg>Home</a><a href=\"#preview\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>Preview</a><a href=\"#history\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 10a9 9 0 1 1 1 7M3 4v6h6m3-3v5l3 2\"/></svg>History</a><a href=\"#settings\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 7h16M4 17h16\"/><circle cx=\"9\" cy=\"7\" r=\"3\"/><circle cx=\"15\" cy=\"17\" r=\"3\"/></svg>Settings</a></nav>",
+      "css": ".ds-nav{display:flex;gap:32px;border-block:1px solid var(--ink, #18231e);font:400 13px/1.55 var(--body, \"DM Sans\", sans-serif);color:var(--ink, #18231e);} .ds-nav a{display:flex;align-items:center;gap:8px;min-height:50px;padding:0 1px;text-decoration:none;color:inherit;position:relative;outline-offset:5px;transition:color 180ms var(--ease, cubic-bezier(0.23, 1, 0.32, 1));} .ds-nav a[aria-current=\"page\"]::after{content:\"\";position:absolute;bottom:-1px;left:0;right:0;height:3px;background:var(--ink, #18231e);} .ds-nav a:hover{color:#395d40;} .ds-nav a:focus-visible{outline:2px solid #395d40;} .ds-nav svg{display:block;width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.3;} @media(max-width:760px){.ds-nav{justify-content:space-between;gap:10px;font-size:12px;}} @media(max-width:540px){.ds-nav svg{display:none;}.ds-nav a{min-height:46px;}} @media(prefers-reduced-motion:reduce){.ds-nav a{transition:none;}}"
+    },
+    {
+      "name": "Outcome Tag",
+      "kind": "chip",
+      "description": "Noninteractive flat outcome label; text carries meaning alongside color.",
+      "html": "<span class=\"ds-outcome\">Move</span>",
+      "css": ".ds-outcome{display:inline-block;font:400 12px/1.55 var(--body, \"DM Sans\", sans-serif);padding:3px 8px;color:var(--ink, #18231e);background:var(--green,#abd4b7);border-radius:0;}",
+      "refersTo": "outcome-move"
+    },
+    {
+      "name": "Last-run Result Mosaic",
+      "kind": "custom",
+      "description": "Flush result cells with a full-width moved count; specimen numbers are explicitly examples.",
+      "html": "<section class=\"ds-results\" aria-label=\"Illustrative result pattern\"><div class=\"ds-metrics\"><div class=\"ds-metric\"><strong>3</strong><span>Moved</span></div><div class=\"ds-metric\"><strong>1</strong><span>Duplicates</span></div><div class=\"ds-metric\"><strong>0</strong><span>Renamed</span></div><div class=\"ds-metric\"><strong>2</strong><span>Skipped</span></div><div class=\"ds-metric\"><strong>0</strong><span>Failed</span></div></div><p class=\"ds-caption\">Example data. Duplicates and renamed files are included in Moved.</p></section>",
+      "css": ".ds-results{color:var(--ink, #18231e);font:400 12px/1.55 var(--body, \"DM Sans\", sans-serif);} .ds-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;margin:18px 0 12px;} .ds-metric{min-width:0;padding:16px 12px;background:var(--green,#abd4b7);} .ds-metric:first-child{grid-column:1/-1;display:flex;align-items:baseline;justify-content:space-between;padding:18px 20px;} .ds-metric:nth-child(2){background:var(--lavender,#d4b4ef);} .ds-metric:nth-child(4){background:var(--peach,#f2b58d);} .ds-metric:nth-child(5){background:var(--blue,#c2d7f3);} .ds-metric strong{display:block;font:400 36px/1.05 var(--display, \"Bodoni Moda\", Georgia, serif);font-variation-settings:\"opsz\" 18;font-variant-numeric:tabular-nums;} .ds-metric:first-child strong{font-size:56px;} .ds-metric span{display:block;margin-top:7px;overflow-wrap:anywhere;} .ds-metric:first-child span{font-size:13px;} .ds-caption{color:var(--muted,#4c574f);margin:0;} @media(max-width:760px){.ds-metrics{grid-template-columns:repeat(2,minmax(0,1fr));}.ds-metric{padding:14px;}} @media(max-width:540px){.ds-metrics{grid-template-columns:repeat(4,minmax(0,1fr));}.ds-metric{padding:13px 8px;}.ds-metric strong{font-size:32px;}}",
+      "refersTo": "metric"
+    },
+    {
+      "name": "Setting Switch",
+      "kind": "custom",
+      "description": "A labeled binary setting with an ink checked track and circular knob.",
+      "html": "<label class=\"ds-switch-row\"><span>Automatic sorting</span><input class=\"ds-switch\" type=\"checkbox\" checked></label>",
+      "css": ".ds-switch-row{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0;border-bottom:1px solid var(--line,#a5afa4);color:var(--ink, #18231e);font:600 14px/1.55 var(--body, \"DM Sans\", sans-serif);} .ds-switch{appearance:none;flex:0 0 auto;width:42px;height:24px;border:1px solid #657568;border-radius:20px;background:transparent;position:relative;cursor:pointer;margin:0;outline-offset:5px;} .ds-switch::after{content:\"\";position:absolute;width:16px;height:16px;left:3px;top:3px;border-radius:50%;background:#657568;transition:transform 180ms var(--ease, cubic-bezier(0.23, 1, 0.32, 1));} .ds-switch:checked{background:var(--ink, #18231e);border-color:var(--ink, #18231e);} .ds-switch:checked::after{transform:translateX(18px);background:var(--paper, #f4f5f0);} .ds-switch:focus-visible{outline:2px solid #395d40;} .ds-switch:disabled{opacity:.48;cursor:not-allowed;} @media(prefers-reduced-motion:reduce){.ds-switch::after{transition:none;}}",
+      "refersTo": "switch"
+    },
+    {
+      "name": "Globe and File Artwork",
+      "kind": "custom",
+      "description": "The actual original inline SVG artwork, with a single reduced-motion-aware arrival.",
+      "html": "<div class=\"ds-art\" aria-hidden=\"true\"><svg class=\"ds-order-art\" viewBox=\"0 0 420 330\" fill=\"none\">\n                <circle\n                  cx=\"217\"\n                  cy=\"162\"\n                  r=\"113\"\n                  fill=\"#c6a3ec\"\n                  class=\"ds-art-disc\"\n                />\n                <g stroke=\"currentColor\" stroke-width=\"1.2\">\n                  <ellipse cx=\"217\" cy=\"162\" rx=\"113\" ry=\"113\" />\n                  <ellipse cx=\"217\" cy=\"162\" rx=\"57\" ry=\"113\" />\n                  <ellipse cx=\"217\" cy=\"162\" rx=\"113\" ry=\"44\" />\n                  <path\n                    d=\"M104 162h226M217 49v226M119 106c57 25 139 25 196 0M119 218c57-25 139-25 196 0\"\n                  />\n                  <path\n                    d=\"M66 253c-55-67 124-192 251-185 82 5 25 109-66 158-72 39-143 58-185 27Z\"\n                  />\n                </g>\n                <g class=\"ds-art-sheet\" stroke=\"currentColor\" stroke-width=\"1.2\">\n                  <path d=\"m62 171 78-18 42 17 20 91-106 25Z\" fill=\"#f4f5f0\" />\n                  <path\n                    d=\"m140 153 7 31 35-14M88 204l66-15M92 220l66-15M96 236l43-10\"\n                  />\n                  <path\n                    d=\"m105 201 10 8 15-24\"\n                    stroke=\"#34704d\"\n                    stroke-width=\"2\"\n                  />\n                </g>\n                <g class=\"ds-art-image\" stroke=\"currentColor\" stroke-width=\"1.2\">\n                  <path d=\"m282 109 86 17-21 105-86-17Z\" fill=\"#efb08e\" />\n                  <path d=\"m271 193 30-28 12 18 13-8 24 30M282 203l58 12\" />\n                  <circle cx=\"337\" cy=\"153\" r=\"8\" />\n                </g>\n                <circle cx=\"126\" cy=\"85\" r=\"17\" fill=\"#18231e\" />\n                <path d=\"m120 85 4 4 8-9\" stroke=\"#f4f5f0\" stroke-width=\"1.5\" />\n                <circle cx=\"317\" cy=\"260\" r=\"21\" fill=\"#a2c7ae\" />\n                <path\n                  d=\"M307 260h20m-7-7 7 7-7 7M45 119l15-12M49 125l18-13M333 51v17m-8-8h17\"\n                  stroke=\"currentColor\"\n                  stroke-width=\"1.2\"\n                />\n              </svg><span class=\"ds-art-note\">a place for every file</span></div>",
+      "css": ".ds-art{width:100%;max-width:430px;color:var(--ink, #18231e);} .ds-order-art{display:block;width:100%;height:auto;overflow:visible;} .ds-art-note{display:block;text-align:right;font:400 18px/1.55 var(--display, \"Bodoni Moda\", Georgia, serif);transform:rotate(-5deg);padding-right:26px;margin-top:-12px;} .ds-art-note::after{content:\"\";display:block;width:122px;height:8px;border-bottom:1px solid var(--ink, #18231e);border-radius:50%;margin-left:auto;transform:rotate(-5deg);} @media(prefers-reduced-motion:no-preference){.ds-art{animation:ds-art-arrive 650ms var(--ease, cubic-bezier(0.23, 1, 0.32, 1)) both;} @keyframes ds-art-arrive{from{transform:translateY(10px);clip-path:inset(0 0 12% 0);}to{transform:translateY(0);clip-path:inset(0 0 -10% 0);}}} @media(max-width:540px){.ds-art{max-width:216px;}.ds-art-note{font-size:13px;margin-top:-22px;padding-right:5px;}.ds-art-note::after{width:90px;}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A clear editorial utility",
+    "overview": "Sortify combines cool paper, near-black green ink and high-contrast serif headings with compact, readable controls. A fading color field and authored globe/file line art give the utility an identity; open sections and fine rules keep operational information clear. This records the implemented local candidate, not an Android-verified release.\n\nThe user pinned the BOLT/Twinkle references and replaced the earlier dashboard direction with one light theme. No concept roll, seed or app comp was generated or approved. The implementation is the token source; `PRODUCT.md` supplies product truth and `docs/design-direction.md` records the confirmed visual authority.",
+    "keyCharacteristics": [
+      "One light paper-and-ink theme, independent of operating-system appearance.",
+      "Bodoni Moda headings and counts; DM Sans navigation, labels and controls.",
+      "Open sections, thin dividers and square functional surfaces.",
+      "Fading gradients and original inline line artwork.",
+      "Flat result colors, explicit states and restrained motion."
+    ],
+    "rules": [
+      {
+        "name": "The Single Light Theme Rule",
+        "body": "Keep the paper-and-ink system under both operating-system appearance preferences. Do not add an automatic dark variant.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Use the serif for headings, section legends, artwork annotation and counts. Use DM Sans for actions, navigation and explanations.",
+        "section": "typography"
+      },
+      {
+        "name": "The Open Section Rule",
+        "body": "Separate routine content with space and rules. Do not reintroduce rounded or outlined dashboard cards around the operating sections.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** preserve the single light theme and locally bundled font pairing.",
+      "**Do** align open sections to the shell and separate them with space and fine rules.",
+      "**Do** keep outcome labels, helper text, long paths and keyboard focus visible.",
+      "**Do** use the established SVG action arrow consistently when an action needs an icon.",
+      "**Do** keep Save/Discard in normal flow and keep artwork clear of headings at narrow widths.",
+      "**Do** respect reduced motion and label simulated data explicitly."
+    ],
+    "donts": [
+      "**Don't** add rounded cards, enclosing dashboard panels or boxed fieldsets.",
+      "**Don't** add automatic dark-mode switching or a theme selector.",
+      "**Don't** replace the original line artwork with generic decorative icons or unrelated stock imagery.",
+      "**Don't** use shadows to separate ordinary sections or animate the artwork continuously.",
+      "**Don't** invent file statistics or imply that browser demonstration proves Android-manager support."
+    ]
+  }
+}

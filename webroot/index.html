@@ -1,82 +1,546 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f4f5f0" />
     <title>Sortify</title>
-    <style>
-        body { font-family: sans-serif; background: #121212; color: #e0e0e0; padding: 20px; display: flex; justify-content: center; }
-        .card { background: #1e1e1e; padding: 20px; border-radius: 12px; width: 100%; max-width: 350px; }
-        h2 { margin-top: 0; color: #bb86fc; }
-        label { display: block; margin-bottom: 8px; color: #b0b0b0; }
-        input { width: 100%; padding: 12px; margin-bottom: 20px; background: #2c2c2c; border: 1px solid #333; color: white; border-radius: 6px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background: #bb86fc; color: #000; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
-        #toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1; bottom: 30px; left: 50%; transform: translateX(-50%); }
-        #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
-        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
-        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
-    </style>
-</head>
-<body>
-
-    <div class="card">
-        <h2>Sortify Config</h2>
-        <label>Sort Interval (seconds)</label>
-        <input type="number" id="interval" placeholder="300">
-        <button onclick="saveConfig()">Save Settings</button>
+    <link
+      rel="preload"
+      href="fonts/bodoni-moda.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/dm-sans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div id="demo-banner" class="demo-banner" hidden>
+      <strong>Demo mode</strong> · Sample data only. No device files are read or
+      changed.
     </div>
-
-    <div id="toast">Settings Saved!</div>
-
-    <script>
-        // File path for the config
-        const CONF_PATH = "/data/adb/modules/sortify/sortify.conf";
-
-        // 1. Read existing config when page loads
-        async function loadConfig() {
-            try {
-                // ksu.exec runs a shell command and returns output
-                const { stdout } = await ksu.exec(`cat "${CONF_PATH}"`);
-                // Parse "INTERVAL=300" to extract just "300"
-                const match = stdout.match(/INTERVAL=(\d+)/);
-                if (match) {
-                    document.getElementById('interval').value = match[1];
-                }
-            } catch (e) {
-                console.error("Read Error:", e);
-            }
-        }
-
-        // 2. Save new config
-        async function saveConfig() {
-            const val = document.getElementById('interval').value;
-            if (!val) return;
-
-            try {
-                // Write the value back to the file
-                await ksu.exec(`echo "INTERVAL=${val}" > "${CONF_PATH}"`);
-                
-                // Show success message
-                showToast("Saved! Interval set to " + val + "s");
-            } catch (e) {
-                showToast("Error: " + e);
-            }
-        }
-
-        function showToast(msg) {
-            const x = document.getElementById("toast");
-            x.innerText = msg;
-            x.className = "show";
-            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-        }
-
-        // Initialize
-        if (typeof ksu !== 'undefined') {
-            loadConfig();
-        } else {
-            // Fallback for browser testing (mock)
-            console.log("Not in KernelSU");
-        }
-    </script>
-
-</body>
+    <div class="app-shell">
+      <header class="masthead">
+        <a class="wordmark" href="#home" aria-label="Sortify home">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M16 3v26M3 16h26M7 7l18 18M7 25 25 7" /></svg
+          >Sortify
+        </a>
+        <div class="masthead-tools">
+          <span class="version" id="version">v5.0</span>
+        </div>
+      </header>
+      <nav aria-label="Main navigation" class="navigation">
+        <a href="#home" data-page="home" aria-current="page"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m3 10 9-7 9 7v10H3V10Zm6 10v-7h6v7" /></svg
+          >Home</a
+        >
+        <a href="#preview" data-page="preview"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z" />
+            <circle cx="12" cy="12" r="3" /></svg
+          >Preview</a
+        >
+        <a href="#history" data-page="history"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 10a9 9 0 1 1 1 7M3 4v6h6m3-3v5l3 2" /></svg
+          >History</a
+        >
+        <a href="#settings" data-page="settings"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16M4 17h16" />
+            <circle cx="9" cy="7" r="3" />
+            <circle cx="15" cy="17" r="3" /></svg
+          >Settings</a
+        >
+      </nav>
+      <div id="connection" class="connection" role="status">
+        Connecting to Sortify…
+      </div>
+      <div
+        id="notice"
+        class="notice"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></div>
+      <main id="main" tabindex="-1">
+        <section id="page-home" aria-labelledby="home-title">
+          <div class="hero">
+            <div class="hero-copy">
+              <h1 id="home-title">A little more<br /><em>organized.</em></h1>
+              <p class="hero-description">
+                Keep your downloads sorted.<br />
+                Keep every file.
+              </p>
+            </div>
+            <div class="art-composition" aria-hidden="true">
+              <svg class="order-art" viewBox="0 0 420 330" fill="none">
+                <circle
+                  cx="217"
+                  cy="162"
+                  r="113"
+                  fill="#c6a3ec"
+                  class="art-disc"
+                />
+                <g stroke="currentColor" stroke-width="1.2">
+                  <ellipse cx="217" cy="162" rx="113" ry="113" />
+                  <ellipse cx="217" cy="162" rx="57" ry="113" />
+                  <ellipse cx="217" cy="162" rx="113" ry="44" />
+                  <path
+                    d="M104 162h226M217 49v226M119 106c57 25 139 25 196 0M119 218c57-25 139-25 196 0"
+                  />
+                  <path
+                    d="M66 253c-55-67 124-192 251-185 82 5 25 109-66 158-72 39-143 58-185 27Z"
+                  />
+                </g>
+                <g class="art-sheet" stroke="currentColor" stroke-width="1.2">
+                  <path d="m62 171 78-18 42 17 20 91-106 25Z" fill="#f4f5f0" />
+                  <path
+                    d="m140 153 7 31 35-14M88 204l66-15M92 220l66-15M96 236l43-10"
+                  />
+                  <path
+                    d="m105 201 10 8 15-24"
+                    stroke="#34704d"
+                    stroke-width="2"
+                  />
+                </g>
+                <g class="art-image" stroke="currentColor" stroke-width="1.2">
+                  <path d="m282 109 86 17-21 105-86-17Z" fill="#efb08e" />
+                  <path d="m271 193 30-28 12 18 13-8 24 30M282 203l58 12" />
+                  <circle cx="337" cy="153" r="8" />
+                </g>
+                <circle cx="126" cy="85" r="17" fill="#18231e" />
+                <path d="m120 85 4 4 8-9" stroke="#f4f5f0" stroke-width="1.5" />
+                <circle cx="317" cy="260" r="21" fill="#a2c7ae" />
+                <path
+                  d="M307 260h20m-7-7 7 7-7 7M45 119l15-12M49 125l18-13M333 51v17m-8-8h17"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                />
+              </svg>
+              <span class="art-note">a place for every file</span>
+            </div>
+          </div>
+          <div class="status-strip">
+            <span class="status-pill" id="run-state">Connecting</span
+            ><span id="service-state" class="muted">Reading service status</span
+            ><button type="button" id="refresh-home" class="text-button">
+              Refresh
+            </button>
+          </div>
+          <p id="current-file" class="file-path current-file" hidden></p>
+          <div class="home-columns">
+            <section class="section-block">
+              <div class="section-heading">
+                <h2>On your terms.</h2>
+              </div>
+              <div class="actions home-actions">
+                <button
+                  type="button"
+                  class="primary"
+                  id="sort-now"
+                  data-write
+                  disabled
+                >
+                  Sort now
+                  <svg
+                    class="action-arrow"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="m6 18 12-12M6 6h12v12" />
+                  </svg></button
+                ><button type="button" id="open-preview" data-write disabled>
+                  Preview files</button
+                ><button
+                  type="button"
+                  class="danger"
+                  id="stop-run"
+                  data-write
+                  hidden
+                  disabled
+                >
+                  Stop current run
+                </button>
+              </div>
+              <div class="setting-row">
+                <div>
+                  <label for="home-auto">Automatic sorting</label>
+                  <p id="home-auto-description">Loading saved settings</p>
+                </div>
+                <input
+                  class="switch"
+                  type="checkbox"
+                  id="home-auto"
+                  data-write
+                  disabled
+                />
+              </div>
+              <div class="detail-row">
+                <span>Keep recent downloads</span
+                ><strong id="home-delay">—</strong>
+              </div>
+              <div class="detail-row">
+                <span>Next scheduled check</span
+                ><strong id="next-run">—</strong>
+              </div>
+              <p class="small muted" id="run-help">
+                Manual sorting follows your delay, ignore rules and Undo
+                protection.
+              </p>
+            </section>
+            <section class="section-block">
+              <div class="section-heading">
+                <h2>The last sort.</h2>
+              </div>
+              <div id="last-run" class="last-run">
+                <p class="muted">Your last run will appear here.</p>
+              </div>
+              <a href="#history" class="inline-link"
+                >View move history
+                <svg
+                  class="action-arrow"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="m6 18 12-12M6 6h12v12" /></svg
+              ></a>
+            </section>
+          </div>
+          <div id="home-warnings"></div>
+        </section>
+        <section id="page-preview" aria-labelledby="preview-title" hidden>
+          <div class="page-heading">
+            <h1 id="preview-title">The next move.</h1>
+            <p>
+              See where eligible files would go. Preview does not move files.
+            </p>
+          </div>
+          <div class="toolbar">
+            <button
+              type="button"
+              id="refresh-preview"
+              class="primary"
+              data-write
+              disabled
+            >
+              Scan preview
+              <svg class="action-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 18 12-12M6 6h12v12" />
+              </svg></button
+            ><span id="preview-time" class="small muted">No scan yet</span>
+          </div>
+          <p class="small muted">
+            Files can change after a preview. Sorting checks them again. File
+            ages estimate eligibility from modification times and stability
+            observations.
+          </p>
+          <div id="preview-summary"></div>
+          <div class="filters">
+            <label
+              >Show<select id="preview-filter">
+                <option value="all">All outcomes</option>
+                <option value="move">Moves</option>
+                <option value="duplicate">Duplicates</option>
+                <option value="skip">Skipped</option>
+                <option value="error">Errors</option>
+              </select></label
+            ><label
+              >Find a file<input
+                type="search"
+                id="preview-search"
+                placeholder="Filename, category or reason"
+            /></label>
+          </div>
+          <div id="preview-warnings"></div>
+          <div id="preview-list" class="file-list">
+            <p class="empty-state">
+              Scan a preview to see proposed destinations and skip reasons.
+            </p>
+          </div>
+        </section>
+        <section id="page-history" aria-labelledby="history-title" hidden>
+          <div class="page-heading">
+            <h1 id="history-title">A clear record.</h1>
+            <p>
+              Restore unchanged files to their original location. Undo leaves
+              occupied paths and changed files intact.
+            </p>
+          </div>
+          <div class="toolbar">
+            <p id="retention-label" class="small muted"></p>
+            <button
+              type="button"
+              id="clear-history"
+              class="text-button danger-text"
+              data-write
+              disabled
+            >
+              Clear history
+            </button>
+          </div>
+          <div id="history-list"></div>
+          <section class="section-block holds-section">
+            <div class="section-heading">
+              <h2>Kept in place.</h2>
+              <span id="holds-count" class="muted">0 held files</span>
+            </div>
+            <p class="muted">
+              Files restored by Undo stay protected from all sorting, across
+              restarts and history clearing. Release a file when it is ready to
+              sort again.
+            </p>
+            <div id="holds-list"></div>
+          </section>
+        </section>
+        <section id="page-settings" aria-labelledby="settings-title" hidden>
+          <div class="page-heading">
+            <h1 id="settings-title">Your kind of order.</h1>
+            <p>
+              Changes apply after you save. Existing organized files stay where
+              they are.
+            </p>
+          </div>
+          <form id="settings-form" novalidate>
+            <fieldset data-settings>
+              <legend>Sorting</legend>
+              <div class="setting-row">
+                <div>
+                  <label for="auto-sort">Automatic sorting</label>
+                  <p>Off by default. Preview files before switching it on.</p>
+                </div>
+                <input type="checkbox" class="switch" id="auto-sort" />
+              </div>
+              <label class="field"
+                >Check interval, in seconds<input
+                  type="text"
+                  inputmode="numeric"
+                  id="interval"
+                  autocomplete="off"
+                  aria-describedby="interval-help"
+                /><span id="interval-help" class="hint"
+                  >3600 = one hour. Allowed: 60–604800 seconds.</span
+                ></label
+              >
+              <div class="setting-row">
+                <div>
+                  <label for="delay-enabled"
+                    >Keep recent downloads for 1 day</label
+                  >
+                  <p>
+                    Uses modification time and stability observations.
+                    Unfinished-download protection remains on when this is off.
+                  </p>
+                </div>
+                <input type="checkbox" class="switch" id="delay-enabled" />
+              </div>
+              <label class="field"
+                >Unknown file types<select id="unknown-files">
+                  <option value="others">Move to Others</option>
+                  <option value="leave">
+                    Leave in the source folder
+                  </option></select
+                ><span class="hint"
+                  >When Others is disabled, unknown files stay in the
+                  source.</span
+                ></label
+              >
+            </fieldset>
+            <fieldset data-settings>
+              <legend>Categories</legend>
+              <p class="muted">
+                Disabled categories stay in the source folder, including
+                potential duplicates.
+              </p>
+              <div id="category-toggles"></div>
+            </fieldset>
+            <fieldset data-settings>
+              <legend>Ignore files</legend>
+              <label class="field"
+                >Filename patterns, one per line<textarea
+                  id="ignore"
+                  rows="4"
+                  spellcheck="false"
+                  placeholder="receipt-*.pdf&#10;keep-*"
+                ></textarea
+                ><span class="hint"
+                  >Use * for any characters or ? for one character. Patterns
+                  match filenames; subfolders are never scanned.</span
+                ></label
+              >
+            </fieldset>
+            <details id="advanced" class="advanced">
+              <summary>
+                Advanced settings
+                <span class="muted">Folders, extensions & rules</span>
+              </summary>
+              <fieldset data-settings>
+                <legend>Folders</legend>
+                <label class="field"
+                  >Source folder<input
+                    type="text"
+                    id="source-path"
+                    spellcheck="false"
+                    autocomplete="off"
+                  /><span class="hint"
+                    >Only direct files in this folder are scanned.</span
+                  ></label
+                ><label class="field"
+                  >Organization root<input
+                    type="text"
+                    id="destination-path"
+                    spellcheck="false"
+                    autocomplete="off"
+                  /><span class="hint"
+                    >Changing the root updates category destinations beneath the
+                    old root. Custom destinations outside it stay as configured.
+                    Source and destinations cannot contain one another; folder
+                    access is checked when applying settings.</span
+                  ></label
+                >
+              </fieldset>
+              <fieldset data-settings>
+                <legend>Edit categories</legend>
+                <p class="muted">
+                  Labels, extension lists and destination folders are separate.
+                  Each category has its own absolute destination path.
+                </p>
+                <div id="category-editors"></div>
+                <div class="actions">
+                  <button type="button" id="add-category" data-write>
+                    Add category</button
+                  ><label class="preset-label"
+                    ><span class="sr-only">Optional category preset</span
+                    ><select id="preset">
+                      <option value="">Choose optional preset</option>
+                    </select></label
+                  ><button type="button" id="add-preset" data-write>
+                    Add preset
+                  </button>
+                </div>
+              </fieldset>
+              <fieldset data-settings>
+                <legend>Filename rules</legend>
+                <p class="muted">
+                  The first matching enabled rule wins, before extension
+                  mappings. A disabled winning category leaves the file in the
+                  source.
+                </p>
+                <div id="rule-editors"></div>
+                <button type="button" id="add-rule" data-write>Add rule</button>
+                <div
+                  id="rule-warnings"
+                  class="rule-warnings"
+                  aria-live="polite"
+                ></div>
+                <p class="hint">
+                  Warnings cover obvious overlaps only. Preview shows every
+                  matching rule and the actual winner.
+                </p>
+              </fieldset>
+              <fieldset data-settings>
+                <legend>History retention</legend>
+                <label class="field"
+                  >Keep history, in days<input
+                    type="text"
+                    inputmode="numeric"
+                    id="history-days"
+                    autocomplete="off"
+                  /><span class="hint"
+                    >1–365 days, or the latest 200 runs, whichever limit comes
+                    first. Expired records lose Undo. Organized files and Undo
+                    protection are retained.</span
+                  ></label
+                >
+              </fieldset>
+            </details>
+            <div class="save-bar">
+              <span id="dirty-label" class="small muted"
+                >No unsaved changes</span
+              >
+              <div class="actions">
+                <button type="button" id="discard-settings" data-write>
+                  Discard</button
+                ><button
+                  type="submit"
+                  id="save-settings"
+                  class="primary"
+                  data-write
+                  disabled
+                >
+                  Save settings
+                  <svg
+                    class="action-arrow"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="m6 18 12-12M6 6h12v12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </form>
+          <section class="section-block transfer-section">
+            <h2>Take your settings along.</h2>
+            <p class="muted">
+              Export or paste a versioned settings document. History, locks and
+              file indexes are excluded.
+            </p>
+            <div class="actions">
+              <button type="button" id="export-settings" data-write disabled>
+                Export settings</button
+              ><button type="button" id="download-export" hidden>
+                Download JSON
+              </button>
+            </div>
+            <label class="field"
+              >Settings JSON<textarea
+                id="settings-json"
+                rows="7"
+                spellcheck="false"
+                placeholder="Export settings, or paste a settings document to import."
+              ></textarea>
+            </label>
+            <p id="import-summary" class="hint"></p>
+            <button type="button" id="import-settings" data-write disabled>
+              Review & import
+            </button>
+          </section>
+        </section>
+      </main>
+      <footer>xCaptaiN09</footer>
+    </div>
+    <dialog id="confirm-dialog" aria-labelledby="confirm-title">
+      <form method="dialog">
+        <h2 id="confirm-title"></h2>
+        <p id="confirm-description"></p>
+        <div class="actions">
+          <button value="cancel" autofocus>Cancel</button
+          ><button value="confirm" id="confirm-accept" class="primary">
+            Continue
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <noscript
+      ><p class="notice error">
+        Sortify needs JavaScript to communicate with the installed module.
+      </p></noscript
+    >
+  </body>
 </html>

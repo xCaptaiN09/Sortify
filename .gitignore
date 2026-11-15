@@ -1,0 +1,8 @@
+/build/
+/dist/
+/target/
+/.superpowers/
+__pycache__/
+*.pyc
+/node_modules/
+/.impeccable/review/
