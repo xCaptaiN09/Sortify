@@ -12,6 +12,28 @@ move history and Undo. Author: xCaptaiN09. MIT license.
 [Download v5.0](https://github.com/xCaptaiN09/Sortify/releases/tag/v5.0) ·
 [Changelog](CHANGELOG.md)
 
+## Screenshots
+
+Actual captures from the Android WebUI. Select a screenshot to view it full size.
+
+<p align="center"><strong>Home · Preview · History</strong></p>
+
+<p align="center">
+  <a href="docs/screenshots/home.jpg"><img src="docs/screenshots/home.jpg" alt="Sortify Home with service status, line artwork and Sort now controls" height="460"></a>
+  <a href="docs/screenshots/preview.jpg"><img src="docs/screenshots/preview.jpg" alt="Sortify Preview with scan controls and file outcome filters" height="460"></a>
+  <a href="docs/screenshots/history.jpg"><img src="docs/screenshots/history.jpg" alt="Sortify History showing completed sorting runs" height="460"></a>
+</p>
+
+<details>
+<summary>Sorting results and category controls</summary>
+
+<p align="center">
+  <a href="docs/screenshots/sorting-result.jpg"><img src="docs/screenshots/sorting-result.jpg" alt="Completed sort with two files moved and no failures" height="440"></a>
+  <a href="docs/screenshots/categories.jpg"><img src="docs/screenshots/categories.jpg" alt="Category settings with individual file type toggles" height="440"></a>
+</p>
+
+</details>
+
 ## Defaults
 
 | Setting | Fresh installation |
