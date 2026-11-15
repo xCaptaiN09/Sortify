@@ -1,8 +1,8 @@
 # Sortify v5 implementation and verification
 
 Date: 2026-11-15. Branch: feat/sortify-v5. Base: deb8759.
-Status: v5.0 release preparation authorized by Cap after phone confirmation.
-Release checks and publication follow the recorded implementation validation.
+Status: v5.0 published after Cap confirmed manual sorting on the phone.
+Release: https://github.com/xCaptaiN09/Sortify/releases/tag/v5.0
 
 ## Delivered
 
@@ -105,9 +105,13 @@ checks improve download handling but cannot establish completion for every app.
 ## Release state
 
 module.prop and the helper/UI identify version 5.0/versionCode 11; id remains
-sortify. GitHub was checked before release preparation: latest release v4.0,
-versionCode 10, main at deb8759. Publish the verified v5.0 ZIP and changelog before
-advancing update.json; record the published release after verification.
+sortify. The previous public release was v4.0/code 10. Release v5.0 targets
+source commit cca0a7059445aa2b7c89e22779829c1d63f0c516. The uploaded ZIP was
+downloaded and its SHA-256 and internal file checksums verified before publication.
+The public release and tagged changelog were verified before advancing update.json.
+GitHub Actions run 43719414015 passed every verification/build/package step.
+The four freshly built Go 1.27.4 helpers match the phone-tested binary bytes.
+Release ZIP SHA-256: 3be8834cf74f6c5e8e332fe781d47f95e15c2011d663692cfea6c901e18a2329.
 
 ## Artifacts
 

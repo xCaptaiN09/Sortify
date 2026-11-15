@@ -5,7 +5,8 @@ Current baseline: v4.0, main commit deb8759.
 Status: approved requirements, implemented on local feat/sortify-v5 branch;
 release-candidate validation and device verification are recorded separately in
 IMPLEMENTATION_STATUS.md. Cap authorized the v5.0 release after confirming manual
-sorting on the phone. Version is 5.0/versionCode 11; module ID remains sortify.
+sorting on the phone. Version 5.0/versionCode 11 is published; module ID remains
+sortify. Release: https://github.com/xCaptaiN09/Sortify/releases/tag/v5.0
 Cap supplied two WebUI visual references
 on 2026-11-15; the proposed direction is recorded in section 8.
 
@@ -41,7 +42,8 @@ or a published release. See IMPLEMENTATION_STATUS.md for validation limits.
 - [x] Add a one-day organization delay enabled by default, with an off switch.
 - [x] Add settings export/import and Undo for an entire run.
 - [x] Add unknown-file handling: move to Others by default, or leave in the source.
-- [ ] Publish verified v5 assets and matching update metadata; module identity and candidate version are prepared.
+- [x] Publish verified v5.0 assets and matching update metadata; versionCode 11,
+  unchanged module ID sortify. Manual sorting confirmed by Cap on the phone.
 - [x] Protect files restored by Undo from being automatically sorted again.
 - [x] Add Stop current run, stopping between files after the current operation completes.
 - [x] Warn about overlapping custom rules and show the winning rule.
